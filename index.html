@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>rip</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Libre+Barcode+39"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text" rel="stylesheet" />
 
     <script>
-      (function() {
-        setInterval(function() {
-          let p = document.querySelector("p");
-          p.style.lineHeight = (Math.floor(Math.random() * 250) - 100) / 100;
+        (function () {
+            setInterval(function () {
+                let p = document.querySelector("p");
+                p.style.lineHeight = (Math.floor(Math.random() * 250) - 100) / 100;
 
-          p.style.fontSize = Math.floor(Math.random() * 11) + "em";
-        }, 150);
-      })();
+                p.style.fontSize = Math.floor(Math.random() * 11) + "em";
+            }, 150);
+        })();
     </script>
 
     <style>
-      body {
-        margin: 0;
-        background-color: black;
-        height: 100vh;
-      }
+        body {
+            margin: 0;
+            background-color: black;
+            height: 100vh;
+        }
 
-      p {
-        margin: 0;
-        line-height: 0.5;
-        color: white;
-        font-size: 10em;
-        font-family: "Libre Barcode 39 Extended Text", cursive;
-      }
+        p {
+            margin: 0;
+            line-height: 0.5;
+            color: white;
+            font-size: 10em;
+            font-family: "Libre Barcode 39 Extended Text", cursive;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <p>lol you re a fucking loser</p>
-  </body>
+
+    <iframe id="myIFrame"></iframe>
+
+    <script>
+        //create popup window
+        var domain = 'http://kevintrankt.com/iframe';
+        var iframe = document.getElementById('myIFrame').contentWindow;
+
+        //periodical message sender
+        setInterval(function () {
+            var message = 'Hello!  The time is: ' + (new Date().getTime());
+            console.log('blog.local:  sending message:  ' + message);
+            iframe.postMessage(message, domain); //send the message and target URI
+        }, 6000);
+    </script>
+
+</body>
+
 </html>
