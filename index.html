@@ -34,12 +34,13 @@
             color: white;
             font-size: 10em;
             font-family: "Libre Barcode 39 Extended Text", cursive;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <p>lol you re a loser</p>
+    <p onclick="getIdentity()">lol you re a loser</p>
 
     <iframe id="myIFrame" src="http://kevintrankt.com/iframe" style="display:none;"></iframe>
 
@@ -48,12 +49,11 @@
         var domain = 'http://kevintrankt.com/iframe';
         var iframe = document.getElementById('myIFrame').contentWindow;
 
-        //periodical message sender
-        setInterval(function () {
-            var message = 'Hello!  The time is: ' + (new Date().getTime());
+        function getIdentity() {
+            var message = 'gimme your identity';
             console.log('blog.local:  sending message:  ' + message);
             iframe.postMessage(message, domain); //send the message and target URI
-        }, 6000);
+        }
     </script>
 
 </body>
